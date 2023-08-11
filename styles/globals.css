@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+  text-align: left;
+  justify-content: left;
+  background: none;
+  position: flex;
+  flex-direction: row;
+  color: black;
+}
+p {
+  font-family: Cantarell;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: black;
+  }
+}
+
+.greyOut {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.coverLetter {
+  font-size: 1;
+  color: black;
+}
+
+.namePlate {
+  font-size: 1 rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  font-family: Radio Canada;
+  margin-right: 0rem;
+  color: black;
+  stroke: red;
+  font-weight: bold;
+  text-align: left;
+}
+
+.navLinks {
+  text-decoration: none;
+  letter-spacing: -0.05rem;
+  color: black;
+  text-align: left;
+  font-size: 0.7rem;
+}
+
+.nameText {
+  font-size: 21.2px;
+  font-family: Cabin;
+  color: black;
+  background: none;
+}
+
+.descrTitle {
+  font-size: 12px;
+  font-family: Cabin;
+  text-align: left;
+}
+
+.Fixed-Center {
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  bottom: 50%;
+  right: 15%;
+}
+
+.expTitle {
+  font-family: Maven;
+  margin-top: 50px;
+}
+
+.monoGlyph {
+  writing-mode: vertical-lr;
+  letter-spacing: -50px;
+}

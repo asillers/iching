@@ -1,0 +1,48 @@
+{
+  "homepage": "https://arthursillers.com",
+  "name": "arthursillersdotcom",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@google-cloud/vision": "^3.1.4",
+    "check-node-version": "^4.2.1",
+    "framer-motion": "^7.10.3",
+    "latest-version": "^7.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "net": "^1.0.2",
+    "next": "^13.4.12",
+    "next-react-svg": "^1.0.0",
+    "openai": "^3.0.0",
+    "pureimage": "^0.3.17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-player": "^2.12.0",
+    "react-responsive": "^9.0.2",
+    "react-use-measure": "^2.1.1",
+    "react-webcam": "^7.1.1",
+    "request": "^2.88.2",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.18",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.22.0",
+    "eslint-config-next": "^13.4.12",
+    "gh-pages": "^4.0.0",
+    "postcss": "^8.4.27",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.3.3"
+  }
+}
