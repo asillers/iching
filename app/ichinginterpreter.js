@@ -3,6 +3,8 @@ import { hexTable } from "./hextable.js";
 import { useEffect, useState,  } from "react";
 
 export default function IchingInterpreter({ hex1, hex2 }) {
+  const [gptInterpret, setGptInterpret] = useState("...");
+
   const hexString1 = String(hex1);
   const hexString2 = String(hex2);
   let name1 = String(hexTable.find((item) => item.key === hexString1).name);
@@ -18,40 +20,26 @@ export default function IchingInterpreter({ hex1, hex2 }) {
     hexTable.find((item) => item.key === hexString2).judgement,
   );
 
-  let [iChinger, setiChinger] = useState("");
-  const populatePrompt = async () => {
-    setiChinger(
-      (iChinger = 
-        "give me a brief interpretation of the following result from a consultation with the I Ching: The Current Hexagram is " +
-          title1 +
-          " with a judgement of " +
-          judgement1 +
-          " and an image of " +
-          image1 +
-          ". This hexagram is changing into the future hexagram " +
-          title2 +
-          " with a judgement of " +
-          judgement2 +
-          " and an image of " +
-          image2,
-      ),
-    );
-  };
-  useEffect(() => populatePrompt);
-  const [gptInterpret, setGptInterpret] = useState("...");
   const generateIchingGpt = async () => {
+    setGptInterpret('...')
+    const prompt = `give me a brief interpretation of the following result from a consultation with the I Ching: 
+      The Current Hexagram is ${title1} with a judgement of ${judgement1} and an image of ${image1} . This hexagram 
+      is changing into the future hexagram ${title2} with a judgement of ${judgement2} and an image of ${image2}`
     const response = await fetch("/api/ichinggenerator", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({iChinger}),
+      body: JSON.stringify({prompt}),
     });
     const data = await response.json();
-    setGptInterpret(data.result), [iChinger];
-  };
+    setGptInterpret(data.result)
+  }
+
+  // Use effect will run after the component is first rendered, and will run again if hex1 or hex2 change
   useEffect(() => {
-    generateIchingGpt();
-  });
+    generateIchingGpt()
+  }, [hex1, hex2])
+    
   return <div>{gptInterpret}</div>;
 }
