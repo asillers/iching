@@ -9,7 +9,7 @@ export default async function Generator(req, res) {
   console.log("body: ", req.body);
   const completion = await openai.createCompletion({
     model: "text-davinci-002",
-    prompt: req.body.iChinger,
+    prompt: req.body.prompt,
     temperature: 0.6,
     max_tokens: 2000,
   });
